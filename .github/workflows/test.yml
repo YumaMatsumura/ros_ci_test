@@ -1,4 +1,4 @@
-name: ros-workflows-test
+name: ros workflows test
 on: 
   pull_request:
     branches: [ master ]
@@ -7,19 +7,21 @@ on:
 jobs:
   ros_workflows_test:
     runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
     steps:
       - name: Setup directories
         run: mkdir -p ros2_ws/src
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with: 
           path: ros2_ws/src
       - name: Setup ROS2 environment
-      - uses: ros-tooling/setup-ros-ci@v0.2
+        uses: ros-tooling/setup-ros-ci@v0.2
         with: 
           required-ros-distributions: foxy
       - name: Build and Test
-      - uses: ros-tooling/action-ros-ci@v0.2
+        uses: ros-tooling/action-ros-ci@v0.2
         with:
           package-name: cpp_test
           target-ros2-distro: foxy
