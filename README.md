@@ -2,7 +2,7 @@
 [![Code Size](https://img.shields.io/github/languages/code-size/YumaMatsumura/ros_ci_test)](https://github.com/YumaMatsumura/ros_ci_test)
 
 ## バッジの付け方
-1. まず、以下のURLの検索欄でgithubと入力し、必要なものをクリックする。
+1. まず、以下のURLの検索欄でgithubと入力し、必要なものをクリックする。  
 https://shields.io/
 
 2. 次に、必要なもの（repoやuser等）を記入し、urlを生成し、README.mdに貼り付ける。
