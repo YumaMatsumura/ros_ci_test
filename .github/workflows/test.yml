@@ -1,4 +1,4 @@
-name: ROS Workflows Test
+name: ros-workflows-test
 on: 
   pull_request:
     branches: [ master ]
