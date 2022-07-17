@@ -17,7 +17,7 @@ jobs:
         with: 
           path: ros2_ws/src
       - name: Setup ROS2 environment
-        uses: ros-tooling/setup-ros@0.2
+        uses: ros-tooling/setup-ros@v0.2
         with: 
           required-ros-distributions: foxy
       - name: Build and Test
@@ -25,6 +25,5 @@ jobs:
         with:
           package-name: cpp_test
           target-ros2-distro: foxy
-          vcs-repo-file-url: ""
       
     
