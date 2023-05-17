@@ -21,7 +21,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
 
-set(text_publisher_executable string)
+set(text_publisher_executable text_publisher)
 set(text_publisher_library ${text_publisher_executable}_core)
 set(dependencies
   rclcpp
@@ -51,6 +51,19 @@ install(TARGETS ${text_publisher_library}
 install(DIRECTORY include/
   DESTINATION include/)
 
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+  
+  # Test dynamic parameters
+  ament_add_gtest(test_dynamic_parameters
+    test/test_dynamic_parameters.cpp)
+  ament_target_dependencies(test_dynamic_parameters
+    ${dependencies})
+  target_link_libraries(test_dynamic_parameters
+    ${text_publisher_library})
+endif()
 
 ament_export_include_directories(include)
 ament_export_libraries(${text_publisher_library})
