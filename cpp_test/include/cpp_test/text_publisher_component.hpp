@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <rclcpp/rclcpp.hpp>
 
@@ -18,13 +19,17 @@ class TextPublisher : public rclcpp::Node
 public:
   explicit TextPublisher(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
   ~TextPublisher();
-  
-private:
+
+protected:
   void timerCallback();
-  
+  rcl_interfaces::msg::SetParametersResult
+  dynamicParametersCallback(std::vector<rclcpp::Parameter> parameters);
+
+  rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr dyn_params_handler_;
+
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_text_;
   rclcpp::TimerBase::SharedPtr timer_;
-  
+
   std::string message_;
 };
 
