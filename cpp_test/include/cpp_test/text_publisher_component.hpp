@@ -22,9 +22,6 @@
 
 #include <std_msgs/msg/string.hpp>
 
-using namespace std::chrono_literals;
-using namespace std::placeholders;
-
 namespace cpp_test
 {
 
@@ -47,4 +44,4 @@ protected:
   std::string message_;
 };
 
-} // namespace cpp_test
+}  // namespace cpp_test

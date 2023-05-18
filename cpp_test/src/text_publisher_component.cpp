@@ -20,6 +20,9 @@ namespace cpp_test
 TextPublisher::TextPublisher(const rclcpp::NodeOptions & options)
 : rclcpp::Node("text_publisher_node", options)
 {
+  using namespace std::chrono_literals;
+  using namespace std::placeholders;
+
   this->declare_parameter<std::string>("message", "hello world.");
   this->get_parameter("message", message_);
 
@@ -58,7 +61,7 @@ TextPublisher::dynamicParametersCallback(std::vector<rclcpp::Parameter> paramete
   return result;
 }
 
-} // namepsace cpp_test
+}  // namespace cpp_test
 
 #include "rclcpp_components/register_node_macro.hpp"
 

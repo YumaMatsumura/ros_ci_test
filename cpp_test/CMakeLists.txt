@@ -27,7 +27,7 @@ set(dependencies
   rclcpp
   rclcpp_components
   std_msgs)
-  
+
 include_directories(include)
 
 add_executable(${text_publisher_executable}
@@ -41,7 +41,7 @@ ament_target_dependencies(${text_publisher_library}
   ${dependencies})
 rclcpp_components_register_nodes(${text_publisher_library}
   "cpp_test::TextPublisher")
-  
+
 install(TARGETS ${text_publisher_executable}
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 install(TARGETS ${text_publisher_library}
@@ -55,7 +55,7 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   find_package(ament_cmake_gtest REQUIRED)
   ament_lint_auto_find_test_dependencies()
-  
+
   # Test dynamic parameters
   ament_add_gtest(test_dynamic_parameters
     test/test_dynamic_parameters.cpp)
